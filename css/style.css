@@ -1,0 +1,94 @@
+/* AI-assisted starter stylesheet for the M3 portfolio exercise.
+   The student should review, understand, and retype any ideas they adopt. */
+:root {
+  /* Colour roles */
+  --color-ink: #193247;
+  --color-muted: #526779;
+  --color-page: #f4f7fa;
+  --color-surface: #ffffff;
+  --color-brand: #155c91;
+  --color-brand-dark: #103e60;
+  --color-accent: #d6a640;
+  --color-border: #cbd7e1;
+  --color-focus: #8c4e00;
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  /* Type scale */
+  --type-sm: 0.875rem;
+  --type-base: 1rem;
+  --type-lg: 1.25rem;
+  --type-xl: 1.75rem;
+  --type-display: clamp(2rem, 5vw, 3.25rem);
+}
+
+/* Subtopic 1: typography and design tokens */
+html { color-scheme: light; }
+body {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--type-base);
+  line-height: 1.65;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.2; }
+h1 { margin-bottom: var(--space-4); font-size: var(--type-display); }
+h2 { margin-bottom: var(--space-4); font-size: var(--type-xl); }
+h3 { margin-bottom: var(--space-2); font-size: var(--type-lg); }
+p { margin-bottom: var(--space-4); }
+.lead { max-width: 62ch; color: var(--color-muted); font-size: var(--type-lg); }
+.eyebrow { margin-bottom: var(--space-2); color: var(--color-brand); font-size: var(--type-sm); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+a { color: var(--color-brand-dark); }
+
+/* Subtopic 2: page layout and spacing */
+.container { width: min(100% - 2rem, 68rem); margin-inline: auto; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); min-height: 5rem; }
+.page-main { min-height: calc(100vh - 11rem); padding-block: var(--space-12); }
+.page-heading { margin-bottom: var(--space-8); }
+.content-section { margin-top: var(--space-12); }
+.hero { padding: clamp(1.5rem, 5vw, 4rem); }
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+.site-footer { padding-block: var(--space-6); }
+.site-footer p { margin: 0; }
+.skills-table { width: 100%; border-collapse: collapse; }
+.skills-table th, .skills-table td { padding: var(--space-3) var(--space-4); text-align: left; vertical-align: top; }
+.skills-table caption { padding: var(--space-4); text-align: left; font-weight: 700; }
+.form-card { max-width: 44rem; }
+.form-field { display: grid; gap: var(--space-2); margin-bottom: var(--space-6); }
+input, textarea { width: 100%; box-sizing: border-box; }
+
+/* Subtopic 3: colour, cards, and buttons */
+.site-header { background: var(--color-brand-dark); color: var(--color-surface); }
+.brand { color: var(--color-surface); font-size: var(--type-lg); font-weight: 700; text-decoration: none; }
+.site-footer { background: var(--color-brand-dark); color: var(--color-surface); }
+.card { border: 1px solid var(--color-border); border-radius: 0.75rem; background: var(--color-surface); padding: var(--space-6); box-shadow: 0 0.25rem 0.75rem rgb(25 50 71 / 8%); }
+.hero { border-top: 0.35rem solid var(--color-accent); }
+.button { display: inline-block; border: 2px solid var(--color-brand); border-radius: 0.4rem; padding: var(--space-3) var(--space-6); background: var(--color-brand); color: var(--color-surface); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+.button-secondary { border-color: var(--color-brand-dark); background: var(--color-surface); color: var(--color-brand-dark); }
+.skills-table th, .skills-table td { border-bottom: 1px solid var(--color-border); }
+.skills-table thead { background: var(--color-brand-dark); color: var(--color-surface); }
+label { font-weight: 700; }
+input, textarea { border: 1px solid var(--color-muted); border-radius: 0.35rem; padding: var(--space-3); background: var(--color-surface); color: var(--color-ink); font: inherit; }
+
+/* Subtopic 4: navigation and keyboard states */
+.site-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.site-nav a { border-radius: 0.25rem; padding: var(--space-2) var(--space-3); color: var(--color-surface); text-decoration: none; }
+.site-nav a:hover { background: var(--color-brand); }
+.site-nav a:focus-visible, .button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+.site-nav a[aria-current="page"] { background: var(--color-brand); }
+
+/* Improvement: keep cards and navigation usable on narrow screens. */
+@media (max-width: 42rem) {
+  .header-inner { align-items: flex-start; flex-direction: column; gap: var(--space-3); padding-block: var(--space-4); }
+  .card-grid { grid-template-columns: 1fr; }
+  .page-main { padding-block: var(--space-8); }
+  .table-scroll { max-width: 100%; overflow-x: auto; }
+  .skills-table { min-width: 42rem; }
+}
